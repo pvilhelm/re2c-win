@@ -1,0 +1,98 @@
+cmake_minimum_required(VERSION 3.13)
+
+project(re2c)
+
+add_executable(re2c)
+
+include_directories(
+    ../)
+
+set(BOOTSTRAP_SOURCES 
+    ../bootstrap/src/ast/lex.cc
+    ../bootstrap/src/ast/lex_conf.cc
+    ../bootstrap/src/conf/parse_opts.cc
+    ../bootstrap/src/conf/ver_to_vernum.cc
+    ../bootstrap/src/ast/parser.cc
+    ../bootstrap/src/conf/help.cc
+    )
+
+
+target_sources(re2c
+    PUBLIC
+    ${BOOTSTRAP_SOURCES}
+    ../src/code/bitmap.cc 
+	../src/code/emit_action.cc 
+	../src/code/emit_dfa.cc 
+	../src/code/label.cc 
+	../src/code/go_construct.cc 
+	../src/code/go_destruct.cc 
+	../src/code/go_emit.cc 
+	../src/code/go_used_labels.cc 
+	../src/code/input_api.cc 
+	../src/code/output.cc 
+	../src/code/print.cc 
+	../src/conf/msg.cc 
+	../src/conf/opt.cc 
+	../src/conf/warn.cc 
+	../src/nfa/dump.cc 
+	../src/nfa/estimate_size.cc 
+	../src/nfa/re_to_nfa.cc 
+	../src/adfa/adfa.cc 
+	../src/adfa/dump.cc 
+	../src/adfa/prepare.cc 
+	../src/dfa/cfg/cfg.cc 
+	../src/dfa/cfg/compact.cc 
+	../src/dfa/cfg/dce.cc 
+	../src/dfa/cfg/dump.cc 
+	../src/dfa/cfg/freeze.cc 
+	../src/dfa/cfg/interfere.cc 
+	../src/dfa/cfg/liveanal.cc 
+	../src/dfa/cfg/normalize.cc 
+	../src/dfa/cfg/optimize.cc 
+	../src/dfa/cfg/rename.cc 
+	../src/dfa/cfg/varalloc.cc 
+	../src/dfa/closure.cc 
+	../src/dfa/closure_leftmost.cc 
+	../src/dfa/closure_posix.cc 
+	../src/dfa/dead_rules.cc 
+	../src/dfa/determinization.cc 
+	../src/dfa/dump.cc 
+	../src/dfa/fallback_tags.cc 
+	../src/dfa/fillpoints.cc 
+	../src/dfa/find_state.cc 
+	../src/dfa/minimization.cc 
+	../src/dfa/posix_precedence.cc 
+	../src/dfa/tag_history.cc 
+	../src/dfa/tagver_table.cc 
+	../src/dfa/tcmd.cc 
+	../src/re/encoding/enc.cc 
+	../src/re/encoding/range_suffix.cc 
+	../src/re/encoding/utf8/utf8_regexp.cc 
+	../src/re/encoding/utf8/utf8_range.cc 
+	../src/re/encoding/utf8/utf8.cc 
+	../src/re/encoding/utf16/utf16_regexp.cc 
+	../src/re/encoding/utf16/utf16.cc 
+	../src/re/encoding/utf16/utf16_range.cc 
+	../src/re/ast_to_re.cc 
+	../src/re/default_tags.cc 
+	../src/re/fixed_tags.cc 
+	../src/re/nullable.cc 
+	../src/re/rule.cc 
+	../src/re/split_charset.cc 
+	../src/re/tag.cc 
+	../src/compile.cc 
+	../src/skeleton/control_flow.cc 
+	../src/skeleton/generate_code.cc 
+	../src/skeleton/generate_data.cc 
+	../src/skeleton/maxpath.cc 
+	../src/skeleton/skeleton.cc 
+	../src/main.cc 
+	../src/ast/ast.cc 
+	../src/ast/input.cc 
+	../src/ast/normalize.cc 
+	../src/ast/scanner.cc 
+	../src/ast/unescape.cc
+	../src/ast/validate.cc 
+	../src/util/s_to_n32_unsafe.cc 
+	../src/util/range.cc
+    )
