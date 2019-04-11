@@ -1,6 +1,14 @@
 re2c
 --------------------------------------------------------------------------------
 
+This "fork" of re2c has a build-script for Windows Visual Studio 14 2015 toolchain.
+
+You need CMake too.
+
+Just execute the bat-file in build_win.
+
+
+
 
 DESCRIPTION
 --------------------------------------------------------------------------------
